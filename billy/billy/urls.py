@@ -25,7 +25,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("reg/", reg, name = "reg"),
     path("auth/", auth, name="auth"),
-    # path("registrations/", registrations, name = "registration"),
+    path("registrations/", registrations, name = "registration")
 ]
 
 if DEBUG:
