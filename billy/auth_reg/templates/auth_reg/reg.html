@@ -9,12 +9,19 @@
     <script src="{% static 'auth_reg/js/reg.js' %}" defer></script>
 </head>
 <body>
-    <form action="" method = "POST">
+    <!-- <form action="" method = "POST" id = "form_id">
         {% csrf_token %}
         <input type="text" name = "name_reg"  id="nameReg" placeholder="NAME YEP">
         <input type="password"name = "password_reg" id="passwordReg" placeholder="PASSWORD YEP">
         <input type="password"name = "rep_password" id="repPassword" placeholder="REPEAT PASSWORD YEP">
         <button class="reg"type="button">REGISTRATION YEP</button>
+    </form> -->
+    <form action="" method="POST" id="form_id">
+        {% csrf_token %}
+        <input type="text" name="username" id="nameReg" placeholder="NAME YEP">
+        <input type="password" name="password" id="passwordReg" placeholder="PASSWORD YEP">
+        <input type="password" name="repPassword" id="repPassword" placeholder="REPEAT PASSWORD YEP">
+        <button class="reg" type="submit">REGISTRATION YEP</button>
     </form>
 </body>
 </html>

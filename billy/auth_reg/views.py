@@ -39,20 +39,35 @@ def auth(request):
 #     return render(request, 'auth_reg/reg.html', context={'users':users}) 
 
 
-def registrations(request):
-    users = UserProfile.objects.all()
+# def registrations(request):
+#     users = UserProfile.objects.all()
 
+#     if request.method == 'POST':
+#         print('123')
+#         username = request.POST.get('username')
+#         password = request.POST.get('password')
+#         confirm_password = request.POST.get('repPassword')
+        
+#         if password == confirm_password:
+#                 user = User.objects.create_user(username=username, password=password)
+#                 user_profile = UserProfile(user=user, confirm_password=confirm_password)
+#                 user_profile.save()
+#                 print('Registration successful')
+
+
+#     return render(request, 'auth_reg/reg.html', context={'users': users})
+
+
+def registrations(request):
     if request.method == 'POST':
-        print('123')
         username = request.POST.get('username')
         password = request.POST.get('password')
         confirm_password = request.POST.get('repPassword')
         
         if password == confirm_password:
-                user = User.objects.create_user(username=username, password=password)
-                user_profile = UserProfile(user=user, confirm_password=confirm_password)
-                user_profile.save()
-                print('Registration successful')
+            user = User.objects.create_user(username=username, password=password)
+            user_profile = UserProfile(user=user)
+            user_profile.save()
+            return JsonResponse({"username": username})
 
-
-    return render(request, 'auth_reg/reg.html', context={'users': users})
+    return JsonResponse({"error": "Invalid request method"})
