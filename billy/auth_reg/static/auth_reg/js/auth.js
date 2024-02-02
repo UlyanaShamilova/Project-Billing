@@ -5,15 +5,18 @@ $(document).ready(function(){
         var password = $("#password").val();
 
         $.ajax({
-            url:"/auth/",
+            url:"/autho/",
             type:"POST",
-            data:{name:name,
+            data:{username:name,
                 password:password,
                 csrfmiddlewaretoken:csrf_token
             },
 
             success: function(response) {
                 console.log(name)
+                $("#message2").text("Авторизація успішна!")
+                $("#name").val("")
+                $("#password").val("")
             }
         })
     })

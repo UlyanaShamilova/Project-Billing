@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, authenticate
 from django.db.utils import IntegrityError
 from django.contrib.auth.models import User
 from django.http import JsonResponse
@@ -14,60 +14,27 @@ def reg(request):
 def auth(request):
         return render(request, "auth_reg/auth.html")
 
-# def registrations(request):
-#     users = UserProfile.objects.all()
-
-#     if request.method == 'POST':
-#             print('123')
-#             username = request.POST.get('nameReg')
-#             password = request.POST.get('passwordReg')
-#             confirm_password = request.POST.get('repPassword')
-            
-#         #     user = User.objects.create_user(
-#         #             username = username, 
-#         #             password = password, 
-#         #             confirm_password = confirm_password)   
-#             UserProfile.objects.create(
-#                 username = username, 
-#                 password = password, 
-#                 confirm_password = confirm_password)   
-                        
-#         #     user_profile = UserProfile(user = user)
-#         #     user_profile.save()
-
-# #     return JsonResponse({"username":username})
-#     return render(request, 'auth_reg/reg.html', context={'users':users}) 
-
-
-# def registrations(request):
-#     users = UserProfile.objects.all()
-
-#     if request.method == 'POST':
-#         print('123')
-#         username = request.POST.get('username')
-#         password = request.POST.get('password')
-#         confirm_password = request.POST.get('repPassword')
-        
-#         if password == confirm_password:
-#                 user = User.objects.create_user(username=username, password=password)
-#                 user_profile = UserProfile(user=user, confirm_password=confirm_password)
-#                 user_profile.save()
-#                 print('Registration successful')
-
-
-#     return render(request, 'auth_reg/reg.html', context={'users': users})
-
 
 def registrations(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        confirm_password = request.POST.get('repPassword')
+        if request.method == 'POST':
+                username = request.POST.get('username')
+                password = request.POST.get('password')
+                confirm_password = request.POST.get('repPassword')
+                if password == confirm_password:
+                        user = User.objects.create_user(username=username, password=password)
+                        user_profile = UserProfile(user=user)
+                        user_profile.save()
+                        return JsonResponse({'username': username})
+        return JsonResponse({'error': 'Invalid request method shakal'})
         
-        if password == confirm_password:
-            user = User.objects.create_user(username=username, password=password)
-            user_profile = UserProfile(user=user)
-            user_profile.save()
-            return JsonResponse({"username": username})
+def autho(request):
+        if request.method == 'POST':
+                username = request.POST.get('username')
+                password = request.POST.get('password')
+                user = authenticate(request, username = username, password = password)
+                if user is not None:
+                        login(request, user)
+                else:
+                        print('Didi')
 
-    return JsonResponse({"error": "Invalid request method"})
+        return JsonResponse({'error': 'Invalid request method'})
