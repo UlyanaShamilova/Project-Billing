@@ -1,24 +1,123 @@
-body {
-    background-color: brown;
+body{
+    background-image: url('https://img.freepik.com/free-vector/gradient-geometric-shapes-on-dark-background_23-2148434188.jpg?size=626&ext=jpg&ga=GA1.1.932491622.1707299235&semt=ais');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 700px; 
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    align-content: center;
-}
-form {
-    margin-top: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 12px;
-    padding: 20px;
-    border-radius: 30px;
-    border: 3px black solid;
+    align-items: center; 
 }
 
-form input, button {
-    width: 200px;
-    border-radius: 10px;
-    border: 3px black solid;
+body, .auth, .reg {
+    background-color: #d3d3d3;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.login, .register {
+    position: relative;
+    height: 420px;
+    width: 305px;
+    margin: auto;
+    padding: 40px 50px;
+    background: url(https://picsum.photos/id/1004/5616/3744) no-repeat   center center #505050;   
+    background-size: cover;
+    box-shadow: 0px 30px 60px -5px #000;
+    border-radius: 30px;
+}
+
+form {
+    padding-top: 80px;
+}
+
+.active {
+    border-bottom: 2px solid #1161ed;
+}
+
+h2 {
+    padding-left: 12px;
+    font-size: 22px;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    letter-spacing: 2px;
+    display: inline-block;
+    font-weight: 100;
+}
+
+.text {
+    border: none;
+    width: 89%;
+    padding: 10px 20px;
+    display: block;
+    height: 15px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0);
+    overflow: hidden;
+    margin-top: 15px;
+    transition: all 0.5s ease-in-out;
+}
+
+.text:focus {
+    outline: 0;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0);
+}
+
+.auth, .reg {
+    background-color: #1161ed;
+    color: #FFF;
+    width: 100%;
+    padding: 10px 20px;
+    display: block;
+    height: 39px;
+    border-radius: 20px;
+    margin-top: 30px;
+    transition: all 0.5s ease-in-out;
+    border: none;
+    text-transform: uppercase;
+}
+
+.auth:hover {
+    background: #4082f5;
+    box-shadow: 0px 4px 35px -5px #4082f5;
+    cursor: pointer;
+}
+
+.reg:hover {
+    background: #4082f5;
+    box-shadow: 0px 4px 35px -5px #4082f5;
+    cursor: pointer;
+}
+
+#hr1 {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    top: 50px;
+    position: relative;
+}
+
+#hr2 {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    top: 10px;
+    position: relative;
+}
+
+#a1 {
+    text-align: center;
+    display: block;
+    top: 70px;
+    position: relative;
+    color: rgb(15, 165, 179);
+}
+
+#a2 {
+    text-align: center;
+    display: block;
+    top: 20px;
+    position: relative;
+    color: rgb(15, 165, 179);
 }

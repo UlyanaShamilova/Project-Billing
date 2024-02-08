@@ -1,21 +1,21 @@
-<html lang="en">
+{% extends 'auth_reg/base.html' %}
 {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+{% block links %}
     <link rel="stylesheet" href="{% static 'auth_reg/css/style.css' %}">
     <script src = "{% static 'auth_reg/js/jquery-3.7.1.min.js' %}" defer></script>
     <script src="{% static 'auth_reg/js/reg.js' %}" defer></script>
-</head>
-<body>
+{% endblock %}
+{% block content %}
+<div class = "register">
+    <h2 class="active"> sign up</h2>
     <form action="" method = "POST">
         {% csrf_token %}
-        <input type="text" name = "username"  id="nameReg" placeholder="NAME YEP">
-        <input type="password"name = "password" id="passwordReg" placeholder="PASSWORD YEP">
-        <input type="password"name = "repPassword" id="repPassword" placeholder="REPEAT PASSWORD YEP">
+        <input type="text" name = "username"  id="nameReg" class = "text" placeholder="NAME YEP">
+        <input type="password"name = "password" id="passwordReg" class = "text" placeholder="PASSWORD YEP">
+        <input type="password"name = "repPassword" id="repPassword" class = "text" placeholder="REPEAT PASSWORD YEP">
         <button class="reg"type="button">REGISTRATION YEP</button>
-        <h2 id = 'message'></h2>
+        <hr id = "hr2">
+        <a id = "a2" href="{% url 'authorization' %}">Already have an account? Sign in</a>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}

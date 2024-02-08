@@ -2,39 +2,39 @@ from django.shortcuts import render
 from django.contrib.auth import login, authenticate
 from django.db.utils import IntegrityError
 from django.contrib.auth.models import User
-from django.http import JsonResponse
-from .models import *
 
 # Create your views here.
+def registration(request):
+    context = {}
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        context['username'] = username
+        context['password']  = password
+        if username and password:
+            if password:
+                try:
+                    User.objects.create_user(username = username, password = password)
+                except IntegrityError:
+                    context['error'] = 'Такий користувач вже існує!'
+            else:
+                context['error'] = 'Паролі не співпадають!'
+    return render(request, 'auth_reg/reg.html', context)
 
-def reg(request):
-        return render(request, 'auth_reg/reg.html') 
-
-
-def auth(request):
-        return render(request, "auth_reg/auth.html")
-
-
-def registrations(request):
-        if request.method == 'POST':
-                username = request.POST.get('username')
-                password = request.POST.get('password')
-                confirm_password = request.POST.get('repPassword')
-                if password == confirm_password:
-                        user = User.objects.create_user(username=username, password=password)
-                        user_profile = UserProfile(user=user)
-                        user_profile.save()
-                        return JsonResponse({'username': username})
-        return JsonResponse({'error': 'Invalid request method shakal'})
-        
-def autho(request):
-        if request.method == 'POST':
-                username = request.POST.get('username')
-                password = request.POST.get('password')
-                user = authenticate(request, username = username, password = password)
-                if user is not None:
-                        login(request, user)
-                else:
-                        print('Didi')
-
-        return JsonResponse({'error': 'Invalid request method'})
+def authorization(request):
+    context = {}
+    if request.user.is_authenticated:
+        context['error'] = 'Такий користувач вже існує!'
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        context['username'] = username
+        if username and password:
+            user = authenticate(username = username, password = password)
+            if user:
+                login(request, user)
+            else:
+                context['error'] = 'Невірний логін або пароль'
+        else:
+            context['error'] = 'Заповніть всі поля'
+    return render(request, 'auth_reg/auth.html', context)

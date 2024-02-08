@@ -20,13 +20,10 @@ from django.conf.urls.static import static
 from .settings import DEBUG, MEDIA_ROOT, MEDIA_URL
 from auth_reg.views import *
 
-
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("reg/", reg, name = "reg"),
-    path("auth/", auth, name="auth"),
-    path("registrations/", registrations, name = "registration"),
-    path("autho/", autho, name = "autho")
+    path('admin/', admin.site.urls),
+    path('', authorization, name = 'authorization'),
+    path('reg/', registration, name='registration')
 ]
 
 if DEBUG:

@@ -5,19 +5,18 @@ $(document).ready(function(){
         var password = $("#password").val();
 
         $.ajax({
-            url:"/autho/",
+            url:"",
             type:"POST",
-            data:{username:name,
-                password:password,
-                csrfmiddlewaretoken:csrf_token
+            data:{
+                username: name,
+                password: password,
+                csrfmiddlewaretoken: csrf_token
             },
-
             success: function(response) {
                 console.log(name)
-                $("#message2").text("Авторизація успішна!")
-                $("#name").val("")
-                $("#password").val("")
+                $("#name").val("");
+                $("#password").val("");
             }
-        })
-    })
-})
+        });
+    });
+});
