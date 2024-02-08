@@ -1,0 +1,92 @@
+{% extends "auth_reg/base.html" %}
+{% load static %}
+
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'new_lessee/style.css' %}" defer>
+<script src="{% static 'new_lessee/script.js' %}" defer></script>
+{% endblock %}
+{% block content %}
+<div>
+    <form action="" method="POST">
+        <div id = "complex">
+            <label for="complexes1">Оберіть торговий комплекс:</label>
+            <input list = "complexes" name = "complexes1">
+            <datalist id = "complexes">
+                <option value="1"></option>
+                <option value="1"></option>
+                <option value="1"></option>
+                <option value="1"></option>
+                <option value="1"></option>
+                <option value="1"></option>
+            </datalist>
+            <label for="num_conct">Номер Договора:</label>
+            <input type="text"name="num_conct">
+            
+        </div>
+        <hr>
+        <br>
+        <div id = "dates">
+            <label for="dates1">Начало Договора:</label>
+            <input type="date" name="dates1">
+            <label for="dates2">Дата ПО:</label>
+            <input type="date" name="dates2">
+            <br>
+            <label for="dates3">Дата Договора </label>
+            <input type="date" name="dates3"> 
+        </div>
+        <hr>
+        <br>
+        <div id = "sides">
+            <label for="sides">Орендодавець:</label>
+            <input list = "sides1" name="side1">
+            <datalist class = "sides1">
+                
+            </datalist>
+            <label for="sides2">Орендатор:</label>
+            <input list = "sides2"name="side2">
+            <datalist class = "sides2">
+            </datalist>
+            <br>
+            <label for="sides3">Орендодавець Р/С:</label>
+            <input list = "sides3"name="side3">
+            <datalist class = "sides3">
+                
+            </datalist>
+        </div>
+        <hr>
+        <br>
+        <div id="others">
+            <label for="others1">Тип договору:</label>
+            <input list = "others1">
+            <datalist class = "others1">
+            </datalist>
+            <label for="others2">Налог на рекламу:</label>
+            <input type="checkbox" name="others2">
+            <br>
+            <label for="others3">В работі:</label>
+            <input type="checkbox" name="others3">
+            <label for="others4">Закрит(Архів):</label>
+            <input type="checkbox" name="others4">
+            <br>
+            <label for="others5">Комментарій:</label>
+            <input type="text" name="others5">
+            <br>
+            <label for="others6">Номер Договора в счете:</label>
+            <input type="text" name="others6">
+            <br>
+            <label for="others6">Основний договор:</label>
+            <input list = "others6" name="others6">
+            <datalist class = "others6">
+            </datalist>
+            <br>
+            <label for="others7">Основний лот:</label>
+            <input type="text" name="others7">
+        </div>
+            
+        <button name = 'new_lessee' id = "new_lesse_button">Зарегеструвати нового орендатора</button>
+
+        <a href="">СОХРАНИТЬ  </a>  <a href="">ОТМЕНА</a>
+    </form>
+</div>
+{% endblock %}

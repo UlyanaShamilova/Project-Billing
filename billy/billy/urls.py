@@ -19,11 +19,14 @@ from django.urls import path
 from django.conf.urls.static import static
 from .settings import DEBUG, MEDIA_ROOT, MEDIA_URL
 from auth_reg.views import *
+from new_lessee.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', authorization, name = 'authorization'),
-    path('reg/', registration, name='registration')
+    path('reg/', registration, name='registration'),
+    path('new_les/', new_lessee, name = 'new_les')
+
 ]
 
 if DEBUG:
