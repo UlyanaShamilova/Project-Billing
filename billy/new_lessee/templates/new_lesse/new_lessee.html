@@ -3,22 +3,22 @@
 
 
 {% block links %}
-<link rel="stylesheet" href="{% static 'new_lessee/style.css' %}" defer>
+<link rel="stylesheet" href="{% static 'new_lessee/css/style.css' %}" defer>
 <script src="{% static 'new_lessee/script.js' %}" defer></script>
 {% endblock %}
 {% block content %}
 <div>
     <form action="" method="POST">
+        {% csrf_token %}
         <div id = "complex">
             <label for="complexes1">Оберіть торговий комплекс:</label>
             <input list = "complexes" name = "complexes1">
             <datalist id = "complexes">
                 <option value="1"></option>
-                <option value="1"></option>
-                <option value="1"></option>
-                <option value="1"></option>
-                <option value="1"></option>
-                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+                <option value="5"></option>
             </datalist>
             <label for="num_conct">Номер Договора:</label>
             <input type="text"name="num_conct">
@@ -41,25 +41,43 @@
             <label for="sides">Орендодавець:</label>
             <input list = "sides1" name="side1">
             <datalist class = "sides1">
-                
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+                <option value="5"></option>
             </datalist>
             <label for="sides2">Орендатор:</label>
             <input list = "sides2"name="side2">
             <datalist class = "sides2">
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+                <option value="5"></option>
             </datalist>
             <br>
             <label for="sides3">Орендодавець Р/С:</label>
             <input list = "sides3"name="side3">
             <datalist class = "sides3">
-                
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+                <option value="5"></option>
             </datalist>
         </div>
         <hr>
         <br>
         <div id="others">
             <label for="others1">Тип договору:</label>
-            <input list = "others1">
+            <input list = "others1" name="others1">
             <datalist class = "others1">
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+                <option value="5"></option>
             </datalist>
             <label for="others2">Налог на рекламу:</label>
             <input type="checkbox" name="others2">
@@ -76,17 +94,22 @@
             <input type="text" name="others6">
             <br>
             <label for="others6">Основний договор:</label>
-            <input list = "others6" name="others6">
+            <input list = "others6" name="others7">
             <datalist class = "others6">
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+                <option value="5"></option>
             </datalist>
             <br>
             <label for="others7">Основний лот:</label>
-            <input type="text" name="others7">
+            <input type="text" name="others8">
         </div>
             
         <button name = 'new_lessee' id = "new_lesse_button">Зарегеструвати нового орендатора</button>
 
-        <a href="">СОХРАНИТЬ  </a>  <a href="">ОТМЕНА</a>
+        <a href="">СОХРАНИТЬ</a>  <a href="">ОТМЕНА</a>
     </form>
 </div>
 {% endblock %}

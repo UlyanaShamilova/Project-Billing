@@ -1,11 +1,10 @@
 body {
-    background-color: yellow;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-content: center;
-
+    
 }
 
 #authorization{
