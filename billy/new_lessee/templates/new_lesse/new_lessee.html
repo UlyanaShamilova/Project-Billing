@@ -12,34 +12,34 @@
         {% csrf_token %}
         <div id = "complex">
             <label for="complexes1">Оберіть торговий комплекс:</label>
-            <input list = "complexes" name = "complexes1">
+            <input list = "complexes" id = "complex" name = "complexes1">
             <datalist id = "complexes">
-                <option value="1"></option>
-                <option value="2"></option>
-                <option value="3"></option>
-                <option value="4"></option>
-                <option value="5"></option>
+                <option value="Мост Сіті"></option>
+                <option value="Экспресс"></option>
+                <option value="Славутич"></option>
+                <option value="ТРЦ Караван"></option>
+                <option value="ТРЦ Дафі"></option>
             </datalist>
             <label for="num_conct">Номер Договора:</label>
-            <input type="text"name="num_conct">
+            <input type="text" id = "num_cont" name="num_conct">
             
         </div>
         <hr>
         <br>
         <div id = "dates">
-            <label for="dates1">Начало Договора:</label>
+            <label for="dates1">Початок Договора:</label>
             <input type="date" name="dates1">
             <label for="dates2">Дата ПО:</label>
             <input type="date" name="dates2">
             <br>
-            <label for="dates3">Дата Договора </label>
+            <label for="dates3">Дата Договору </label>
             <input type="date" name="dates3"> 
         </div>
         <hr>
         <br>
         <div id = "sides">
             <label for="sides">Орендодавець:</label>
-            <input list = "sides1" name="side1">
+            <input list = "sides1" id="side1" name="side1">
             <datalist class = "sides1">
                 <option value="1"></option>
                 <option value="2"></option>
@@ -95,21 +95,22 @@
             <br>
             <label for="others6">Основний договор:</label>
             <input list = "others6" name="others7">
-            <datalist class = "others6">
+            <!-- <datalist class = "others6">
                 <option value="1"></option>
                 <option value="2"></option>
                 <option value="3"></option>
                 <option value="4"></option>
                 <option value="5"></option>
-            </datalist>
+            </datalist> -->
             <br>
             <label for="others7">Основний лот:</label>
             <input type="text" name="others8">
         </div>
             
-        <button name = 'new_lessee' id = "new_lesse_button">Зарегеструвати нового орендатора</button>
 
-        <a href="">СОХРАНИТЬ</a>  <a href="">ОТМЕНА</a>
+
+        <button>СОХРАНИТЬ</button>  <a href="" id = 'a2'>ОТМЕНА</a>
     </form>
+    <h2 id="success"></h2>
 </div>
 {% endblock %}

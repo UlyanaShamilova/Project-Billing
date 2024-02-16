@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Lessee
+from .models import Lessee, Complex, Lessor
 # Create your views here.
 def new_lessee(request):
     context = {}
@@ -15,9 +15,6 @@ def new_lessee(request):
         lessor = request.POST.get('side2')
         lessor_r_s = request.POST.get('side3')
         type_contract = request.POST.get('others1')
-        # checbox1 = request.POST.get('others2')
-        # checbox2 = request.POST.get('others3')
-        # checbox3 = request.POST.get('others4')
         comment = request.POST.get('others5')
         num_document_in_count = request.POST.get('others6')
         main_contract = request.POST.get('others7')
@@ -25,24 +22,26 @@ def new_lessee(request):
 
         if lessee:
             Lessee.objects.create(
-                complex = complex,
-                num_contract  =num_contract, 
-                data1 =data1,
-                data2 =data2,
-                data3  =data3, 
                 lessee =lessee,
-                lessor  =lessor, 
-                lessor_r_s =lessor_r_s,
-                type_contract =type_contract,
-                # checbox1 =checbox1,
-                # checbox2 =checbox2,
-                # checbox3 =checbox3,
-                comment =comment,
-                num_document_in_count =num_document_in_count,
-                main_contract =main_contract,
-                main_lot =main_lot
+                comment = comment
             )
+            if complex:
+                Complex.objects.create(
+                    complex = complex
+                )
 
-
+            if lessor:
+                Lessor.objects.create(
+                    num_contract  =num_contract, 
+                    data1 =data1,
+                    data2 =data2,
+                    data3  =data3, 
+                    lessor  =lessor, 
+                    lessor_r_s =lessor_r_s,
+                    type_contract =type_contract,
+                    num_document_in_count =num_document_in_count,
+                    main_contract =main_contract,
+                    main_lot = main_lot
+                )
 
     return render(request, 'new_lesse/new_lessee.html', context)

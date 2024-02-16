@@ -7,10 +7,23 @@ body{
     background-image: url('https://img.freepik.com/free-vector/gradient-geometric-shapes-on-dark-background_23-2148434188.jpg?size=626&ext=jpg&ga=GA1.1.932491622.1707299235&semt=ais');
     background-size: cover;
     background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+
 }
 form{
     background-color: rgb(110, 110, 110);
-    
+    width: 650px;
+    margin-top: 150px;
+    border: 3px solid black;
+    border-radius: 25px;
+    padding-left: 20px;
 }
 
+#a2 {
+    padding-left: 70%;
+}
+button {
+    background-color: rgb(110, 110, 110);
 
+}
