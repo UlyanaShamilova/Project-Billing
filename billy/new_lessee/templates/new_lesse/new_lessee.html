@@ -7,12 +7,12 @@
 <script src="{% static 'new_lessee/script.js' %}" defer></script>
 {% endblock %}
 {% block content %}
-<div>
+<div class = 'new_lessee'>
     <form action="" method="POST">
         {% csrf_token %}
         <div id = "complex">
             <label for="complexes1">Оберіть торговий комплекс:</label>
-            <input list = "complexes" id = "complex" name = "complexes1">
+            <input list = "complexes" id = "complex" name = "complexes1" class = 'inputs'>
             <datalist id = "complexes">
                 <option value="Мост Сіті"></option>
                 <option value="Экспресс"></option>
@@ -20,26 +20,25 @@
                 <option value="ТРЦ Караван"></option>
                 <option value="ТРЦ Дафі"></option>
             </datalist>
-            <label for="num_conct">Номер Договора:</label>
-            <input type="text" id = "num_cont" name="num_conct">
-            
+            <label for="num_conct">Номер договору:</label>
+            <input type="text" id = "num_cont" name="num_conct" class = 'inputs'>
         </div>
         <hr>
         <br>
         <div id = "dates">
-            <label for="dates1">Початок Договора:</label>
-            <input type="date" name="dates1">
+            <label for="dates1">Початок договору:</label>
+            <input type="date" name="dates1" class = 'inputs'>
             <label for="dates2">Дата ПО:</label>
-            <input type="date" name="dates2">
+            <input type="date" name="dates2" class = 'inputs'>
             <br>
-            <label for="dates3">Дата Договору </label>
-            <input type="date" name="dates3"> 
+            <label for="dates3">Дата договору:</label>
+            <input type="date" name="dates3" class = 'inputs'> 
         </div>
         <hr>
         <br>
         <div id = "sides">
             <label for="sides">Орендодавець:</label>
-            <input list = "sides1" id="side1" name="side1">
+            <input list = "sides1" id="side1" name="side1" class = 'inputs'>
             <datalist class = "sides1">
                 <option value="1"></option>
                 <option value="2"></option>
@@ -48,7 +47,7 @@
                 <option value="5"></option>
             </datalist>
             <label for="sides2">Орендатор:</label>
-            <input list = "sides2"name="side2">
+            <input list = "sides2"name="side2" class = 'inputs'>
             <datalist class = "sides2">
                 <option value="1"></option>
                 <option value="2"></option>
@@ -58,7 +57,7 @@
             </datalist>
             <br>
             <label for="sides3">Орендодавець Р/С:</label>
-            <input list = "sides3"name="side3">
+            <input list = "sides3"name="side3" class = 'inputs'>
             <datalist class = "sides3">
                 <option value="1"></option>
                 <option value="2"></option>
@@ -71,7 +70,7 @@
         <br>
         <div id="others">
             <label for="others1">Тип договору:</label>
-            <input list = "others1" name="others1">
+            <input list = "others1" name="others1" class = 'inputs'>
             <datalist class = "others1">
                 <option value="1"></option>
                 <option value="2"></option>
@@ -79,22 +78,22 @@
                 <option value="4"></option>
                 <option value="5"></option>
             </datalist>
-            <label for="others2">Налог на рекламу:</label>
-            <input type="checkbox" name="others2">
+            <div class = "label-input">
+                <label for="others2" class = "check1">Налог на рекламу:</label>
+                <input type="checkbox" name="others2" class = "check">
+                <label for="others3" class = "check1">В роботі:</label>
+                <input type="checkbox" name="others3" class = "check">
+                <label for="others4" class = "check1">Закрит (архів):</label>
+                <input type="checkbox" name="others4" class = "check">
+            </div>
+            <label for="others5">Коментар:</label>
+            <input type="text" name="others5" class = 'inputs'>
             <br>
-            <label for="others3">В работі:</label>
-            <input type="checkbox" name="others3">
-            <label for="others4">Закрит(Архів):</label>
-            <input type="checkbox" name="others4">
-            <br>
-            <label for="others5">Комментарій:</label>
-            <input type="text" name="others5">
-            <br>
-            <label for="others6">Номер Договора в счете:</label>
-            <input type="text" name="others6">
+            <label for="others6">Номер договору в рахунку:</label>
+            <input type="text" name="others6" class = 'inputs'>
             <br>
             <label for="others6">Основний договор:</label>
-            <input list = "others6" name="others7">
+            <input list = "others6" name="others7" class = 'inputs'>
             <!-- <datalist class = "others6">
                 <option value="1"></option>
                 <option value="2"></option>
@@ -104,12 +103,11 @@
             </datalist> -->
             <br>
             <label for="others7">Основний лот:</label>
-            <input type="text" name="others8">
+            <input type="text" name="others8" class = 'inputs'>
         </div>
-            
+        <button>ЗБЕРЕГТИ</button>  
+        <button class="cancel" type="button">СКАСУВАТИ</button> 
 
-
-        <button>СОХРАНИТЬ</button>  <a href="" id = 'a2'>ОТМЕНА</a>
     </form>
     <h2 id="success"></h2>
 </div>
